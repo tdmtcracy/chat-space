@@ -23,6 +23,7 @@ $mainBlueColor: #38aef0;
       line-height: 20px;
       &__user-name {
         color: $mainWhiteColor;
+        font-weight: bold;
       }
       &__icons {
         width: 60px;
@@ -44,8 +45,11 @@ $mainBlueColor: #38aef0;
       width: 300px;
       height: 91px;
       padding: 20px;
-      color: $mainWhiteColor;
       font-weight: bold;
+      & a {
+        color: $mainWhiteColor;
+        text-decoration: none;
+      }
       &__name {
         font-size: 15px;
         margin-bottom: 5px;
@@ -77,6 +81,13 @@ $mainBlueColor: #38aef0;
       &__member-list {
         color: #999999;
         font-size: 12px;
+        display: flex;
+        & ul {
+          display: flex;
+          & li {
+            margin-left: 10px;
+          }
+        }
       }
     }
     &__edit-btn {
@@ -93,16 +104,18 @@ $mainBlueColor: #38aef0;
   }
   & .messages {
     background-color: #fafafa;
-    width: calc(100vw - 300px);
     height: calc(100vh - 100px - 90px);
-    padding-top: 35px;
+    padding: 46px 40px;
+    overflow: scroll;
     & .message {
-      padding: 0 0 46px 40px;
-      &__info-box {
+      padding-bottom: 40px;
+      &-info-box {
         display: flex;
+        margin-bottom: 10px;
         &__user-name {
           color: #333333;
           font-size: 16px;
+          font-weight: bold;
         }
         &__date-time {
           color: #999999;
@@ -110,10 +123,10 @@ $mainBlueColor: #38aef0;
           margin-left: 10px;
         }
       }
-      &__text {
+      &-contents__text {
         color: #434A54;
         font-size: 14px;
-        padding-top: 12px;
+        margin-bottom: 10px;
       }
     }
   }
@@ -124,27 +137,13 @@ $mainBlueColor: #38aef0;
     & form {
       display: flex;
     }
-    & .input-box {
-      position: relative;
-      width: 100%;
-      &__text {
-        line-height: 50px;
-        padding: 0 40px 0 10px;
-        width: 100%;
-        border-style: none;
-      }
-      &__image {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 1.3em;
-        cursor: pointer;
-        & input {
-          display: none;
-        }
-      }
+    &__message {
+    line-height: 50px;
+    padding: 0 40px 0 10px;
+    width: 100%;
+    border-style: none;
     }
-    & .submit-btn {
+    &__submit {
       width: 100px;
       height: 50px;
       padding: 0 30px;
@@ -152,6 +151,21 @@ $mainBlueColor: #38aef0;
       background-color: $mainBlueColor;
       color: $mainWhiteColor;
       cursor: pointer;
+    }
+    & .input-box {
+      position: relative;
+      &__image {
+        & .icon {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          font-size: 1.3em;
+          cursor: pointer;
+        }
+        & .hidden {
+          display: none;
+        }
+      }
     }
   }
 }
